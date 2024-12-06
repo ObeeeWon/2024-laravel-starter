@@ -8,9 +8,18 @@ class CategoriesController extends Controller
 {
     public function index(){   }
 
-    public function create(){   }
+    public function create(){  
+        return view('categories.create');
+    }
 
-    public function store(Request $request){   }
+    public function store(Request $request){  
+        //check form submission for errors
+        //insert into database or show error
+        // dd($request);
+        $rules = [
+            'categories' => 'required|max:5|unique:categories,company'
+        ];
+    }
     
     public function show(string $id){   }
 
