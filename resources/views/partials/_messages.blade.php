@@ -1,6 +1,8 @@
 @if (Session::has('success'))
-    <div class='alert alert-success' role='alert'>
+    <div class='alert alert-success' role='alert'>{{-- this is set up for bootstrap --}}
         <strong>Success: </strong> {{ Session::get('success') }}
+        {{-- '{{' is directive to trigger PHP to echo something --}}
+        {{-- flash session, once retrieved it's gone --}}
     </div>
 @endif
 
@@ -10,6 +12,7 @@
     </div>
 @endif
 
+{{-- show all error if there's more than one --}}
 @if (count ($errors) > 0 )
     <div class='alert alert-danger' role='alert'>
         <strong>Errors: </strong>
