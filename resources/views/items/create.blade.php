@@ -9,8 +9,8 @@
                     <div class="card-body">
 
                         <form method="POST" action="/items">{{-- form-control gives round corners --}}
-
-                            @csrf {{-- generate a token --}}
+                        {{-- generate a token --}}
+                            @csrf 
                             <label for="category_id">category_id</label>
                             <input type="text" class="form-control" name="category_id" title="category_id" />
 

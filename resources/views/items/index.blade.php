@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">{{-- draw a beautiful box --}}
-                <div class="card-header">Categories</div>
+                <div class="card-header">Items</div>
                 <div class="card-body">
                     @php
                         // dd($items)
@@ -20,14 +20,26 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Item</th>
+                                <th>category_id</th>
+                                <th>title</th>
+                                <th>description</th>
+                                <th>price</th>
+                                <th>quantity</th>
+                                <th>sku</th>
+                                <th>picture</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($items as $item)
                             <tr>
                                 <td>{{ $item->id }}</td>
-                                <td>{{ $item->item }}</td>
+                                <td>{{ $item->category_id }}</td>
+                                <td>{{ $item->title }}</td>
+                                <td>{{ $item->description }}</td>
+                                <td>{{ $item->price }}</td>
+                                <td>{{ $item->quantity }}</td>
+                                <td>{{ $item->sku }}</td>
+                                <td>{{ $item->picture }}</td>
                                 {{-- 
                                     <td>
                                      @foreach($item->items as $items)

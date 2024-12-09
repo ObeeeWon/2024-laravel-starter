@@ -25,12 +25,25 @@ class ItemsController extends Controller
         //insert into database or show error
         // dd($request);
         $rules = [
-            'item' => 'required|max:50|unique:items,item'
+            'category_id' => 'required|max:50',
+            'title' => 'required|max:50|unique:items,title',
+            'description' => 'required|max:50',
+            'price' => 'required|max:50',
+            'sku' => 'required|max:50|unique:items,item',
+            'quantity' => 'required|max:10|unique:items,item',
+            'picture' => 'required|max:50'
+
         ];
         $validator = $this->validate($request, $rules);
 
         $item = new \App\Models\Items;
         $item->category_id = $request->category_id;
+        $item->title = $request->title;
+        $item->description = $request->description;
+        $item->price = $request->price;
+        $item->quantity = $request->quantity;
+        $item->sku = $request->sku;
+        $item->picture = $request->picture;
         $item->save();
 
         //Flash a success message
@@ -54,14 +67,26 @@ class ItemsController extends Controller
     public function update(Request $request, string $id){ 
         // dd($request);
         $rules = [
-            'item' => 'required|max:50|unique:items,item,'.$id
+            'category_id' => 'required|max:50',
+            'title' => 'required|max:50|unique:items,title'.$id,
+            'description' => 'required|max:50',
+            'price' => 'required|max:50',
+            'sku' => 'required|max:50|unique:items,item',
+            'quantity' => 'required|max:10|unique:items,item',
+            'picture' => 'required|max:50'
         ];
         $validator = $this->validate($request, $rules);
 
         $item = \App\Models\Items::find($id);
         if (!$item) dd("no item found");
 
-        $item->item = $request->item;
+        $item->category_id = $request->category_id;
+        $item->title = $request->title;
+        $item->description = $request->description;
+        $item->price = $request->price;
+        $item->sku = $request->sku;
+        $item->quantity = $request->quantity;    
+        $item->picture = $request->picture;
         $item->save();
 
         //Flash a success message
