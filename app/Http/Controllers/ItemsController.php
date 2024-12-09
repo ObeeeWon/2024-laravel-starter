@@ -29,8 +29,8 @@ class ItemsController extends Controller
             'title' => 'required|max:50|unique:items,title',
             'description' => 'required|max:50',
             'price' => 'required|max:50',
-            'sku' => 'required|max:50|unique:items,item',
-            'quantity' => 'required|max:10|unique:items,item',
+            'sku' => 'required|max:50|unique:items,sku',
+            'quantity' => 'required|max:10|unique:items,quantity',
             'picture' => 'required|max:50'
 
         ];
@@ -71,8 +71,8 @@ class ItemsController extends Controller
             'title' => 'required|max:50|unique:items,title'.$id,
             'description' => 'required|max:50',
             'price' => 'required|max:50',
-            'sku' => 'required|max:50|unique:items,item',
-            'quantity' => 'required|max:10|unique:items,item',
+            'sku' => 'required|max:50|unique:items,sku',
+            'quantity' => 'required|max:10|unique:items,quantity',
             'picture' => 'required|max:50'
         ];
         $validator = $this->validate($request, $rules);
